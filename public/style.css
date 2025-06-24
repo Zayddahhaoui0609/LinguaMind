@@ -1,0 +1,611 @@
+body {
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Add any additional custom styles here */
+
+/* Streak Emoji Styles */
+#streak-emojis-container {
+    pointer-events: none; /* Allow clicks to pass through the container */
+}
+
+.streak-emoji {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0;
+    animation: floatAndFade 6s ease-in-out forwards;
+    pointer-events: none; /* Make sure they don't interfere with clicks */
+    z-index: 9999; /* On top of quiz content */
+}
+
+@keyframes floatAndFade {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.9;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-150px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Universal button hover text color */
+
+/* Beta footer */
+.beta-footer {
+  border: 1px solid #3A6B4B;
+  color: #fff;
+  background-color: #3A6B4B;
+  border-radius: 12px;
+  display: inline-block;
+  padding: 0.05rem 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+/* --- Daily Words Card Wrapping --- */
+#wordsGrid div {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+#wordsGrid h5 {
+  font-size: clamp(0.7rem, 3.5vw, 1rem); /* shrink on small screens */
+  margin-bottom: 0.25rem;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+#wordsGrid p {
+  font-size: 0.9rem;
+}
+@media (max-width: 576px) {
+  #wordsGrid p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  #wordsGrid .card {
+    font-size: 0.85rem; /* smaller font so long words fit */
+  }
+}
+
+/* Flashcard Redesign Styles */
+#flashcard-content {
+  background-color: #F8F5F0;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+#flashcard-content .modal-header,
+#flashcard-content .modal-footer {
+  border-color: #EAE5DD;
+}
+
+#flashcard-content .modal-header {
+  background-color: #3A6B4B; /* Green header */
+  border-bottom: none; /* Remove default divider */
+  padding: 1.5rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+#flashcard-content .modal-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #ffffff; /* White text */
+  width: 100%;
+  text-align: center;
+}
+
+#flashcard-content .btn-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+#flashcard-content .modal-body {
+  padding: 3rem 1.5rem;
+  font-size: 2rem;
+  font-weight: 500;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Flashcard flip animation */
+#flashcardCard { perspective: 1000px; }
+#flashcardCard .flash-inner { position: relative; width: 100%; min-height: 60px; transition: transform 0.6s; transform-style: preserve-3d; }
+#flashcardCard .flash-inner.flipped { transform: rotateY(180deg); }
+#flashcardCard .flash-face { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; border-radius:8px; background-color:#3A6B4B; color:#fff; backface-visibility:hidden; font-weight:600; padding:0.5rem 1rem; }
+#flashcardCard .flash-back { transform: rotateY(180deg); }
+
+@media (max-width: 576px) {
+  #flashcard-content .modal-body {
+    font-size: 1.5rem; /* Smaller font for mobile */
+    min-height: 120px;
+    padding: 2rem 1rem;
+  }
+}
+
+#flashcard-content .modal-footer {
+  padding: 1.5rem;
+  border-top-width: 1px;
+}
+
+#flashcard-content .modal-footer .btn {
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+}
+
+#flashcard-content #flipCard {
+  background-color: #3A6B4B;
+  color: white;
+  border-color: #3A6B4B;
+}
+
+#flashcard-content #prevCard,
+#flashcard-content #nextCard {
+  background-color: transparent;
+  color: #3A6B4B;
+  border: 1px solid #3A6B4B;
+}
+
+#flashcard-content #prevCard:hover,
+#flashcard-content #nextCard:hover {
+  background-color: #3A6B4B;
+  color: white;
+}
+
+#progressDots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #D9D9D9; /* Future */
+  transition: background-color 0.3s ease;
+}
+
+#progressDots .dot.visited {
+  background-color: #888888; /* Visited */
+}
+
+#progressDots .dot.current {
+  background-color: #3A6B4B; /* Current */
+}
+
+#progressText {
+    color: #888888 !important; /* Override bootstrap muted color */
+}
+
+/* Quiz Redesign Styles */
+#quiz-content {
+  background-color: #F8F5F0;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+#quiz-content .modal-header,
+#quiz-content .modal-footer {
+  border-color: #EAE5DD;
+}
+
+#quiz-content .modal-header {
+  background-color: #3A6B4B; /* Green header */
+  border-bottom: none;
+  padding: 1.5rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+#quiz-content .modal-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #ffffff; /* White text */
+  width: 100%;
+  text-align: center;
+}
+
+#quiz-content .btn-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+#quiz-content .modal-body {
+  padding: 2rem 1.5rem;
+  min-height: 300px;
+  position: relative;
+}
+
+#quiz-content #streak-emojis-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#quiz-content #quizQuestion {
+  font-size: 1.5rem;
+  font-weight: 500;
+  min-height: 50px;
+}
+
+#quiz-content #quizOptions .btn {
+  width: 100%;
+  max-width: 350px;
+  border: 1px solid #EAE5DD;
+  background-color: #fff;
+  color: #1c1c1c;
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+#quiz-content #quizOptions .btn:hover:not(:disabled) {
+  background-color: #f1f1f1;
+  border-color: #ddd;
+}
+
+#quiz-content #quizOptions .btn.correct {
+  background-color: #3A6B4B !important;
+  border-color: #3A6B4B !important;
+  color: white !important;
+}
+
+#quiz-content #quizOptions .btn.incorrect {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: white !important;
+}
+
+#quiz-content #quizFeedback {
+  font-weight: 600;
+  min-height: 24px;
+  font-size: 1.1rem;
+}
+
+#quiz-content #quizNext {
+  background-color: #3A6B4B;
+  color: white;
+  border-color: #3A6B4B;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+#quizProgressDots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  transition: background-color 0.3s ease;
+}
+
+#quizProgressDots .dot.visited {
+  background-color: #888888;
+}
+
+#quizProgressDots .dot.current {
+  background-color: #3A6B4B;
+}
+
+#quizProgressText {
+    color: #888888 !important;
+}
+
+/* Green styles for selects */
+.form-select:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 .25rem rgba(25,135,84,.25);
+}
+.form-select option:checked,
+.form-select option:hover {
+  background-color:#198754;
+  color:#fff;
+}
+
+
+/* Green scrollbar for selects */
+.form-select {
+  scrollbar-width: thin;
+  scrollbar-color: #198754 #e9ecef; /* thumb, track */
+}
+.form-select::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.form-select::-webkit-scrollbar-track {
+  background: #e9ecef;
+}
+.form-select::-webkit-scrollbar-thumb {
+  background-color: #198754;
+  border-radius: 4px;
+}
+.btn-success:hover,
+.btn-outline-success:hover {
+  color: #fff !important;
+}
+
+/* Floating emojis for quiz effects */
+@keyframes floatUp {
+  0% { 
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(-100px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.flame-float {
+  position: fixed;
+  font-size: 24px;
+  z-index: 10000;
+  pointer-events: none;
+  user-select: none;
+  animation: floatUp 1.5s ease-out forwards;
+}
+
+
+h2 {
+  letter-spacing: -0.5px;
+}
+
+#wordsGrid .border {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.word-card-item {
+  transition: background-color 0.25s ease;
+}
+
+.word-card-item .example {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.35s ease, margin-top 0.35s ease;
+  margin-top: 0;
+}
+
+.word-card-item.card-active .example.example-visible {
+  max-height: 150px; /* Adjust if examples are longer */
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+.word-card-item.card-active {
+  background-color: #198754;
+  color: #ffffff;
+}
+.word-card-item.card-active .text-muted { color:#ffffff !important; }
+.word-card-item.card-active .text-muted { color:#ffffff !important; }
+
+
+
+/* Desktop-only animated hover effect for green buttons */
+
+/* Desktop-only hover effect for word cards */
+@media (hover: hover) and (pointer: fine) {
+  #wordsGrid .border {
+    cursor: pointer;
+    transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  }
+  #wordsGrid .border:hover {
+    background-color: #198754; /* match .btn-success */
+    border-color: #198754;
+    color: #ffffff;
+  }
+  #wordsGrid .border:hover .text-muted {
+    color: #ffffff !important;
+  }
+}
+/* Animated border for footer credit card */
+.credit-card {
+  position: relative;
+  z-index: 1; /* Added to stack above background */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* Ensure footer links have small horizontal spacing */
+.credit-card a {
+  margin: 0 0.25rem;
+}
+
+.credit-card p {
+  margin-bottom: 0;
+}
+.credit-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* border thickness */
+  background: linear-gradient(90deg, #198754 0%, transparent 50%, #198754 100%);
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: moveBorder 3s linear infinite;
+  pointer-events: none;
+}
+/* Article Quiz */
+.word-box{
+  border:2px solid #28a745;
+  border-radius:8px;
+  padding:1rem 2rem;
+  font-size:2rem;
+  font-weight:600;
+  color:#fff;
+  display:inline-block;
+  min-width:150px;
+}
+.word-box.drag-over{
+  background:#2d6a4f;
+}
+.option{
+  cursor:grab;
+  font-size:1.25rem;
+}
+
+/* Quiz Streak */
+#quizStreak{
+  text-align:center;
+  font-weight:600;
+  font-size:1.25rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:0.25rem;
+}
+#quizStreak .flame{
+  display:inline-block;
+  font-size:1.6rem;
+  animation:flicker 0.8s ease-in-out infinite;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0);opacity:0;}
+  10%{opacity:1;}
+  100%{transform:translateY(-60px);opacity:0;}
+}
+
+.flame-float{
+  z-index:2000;
+  position:absolute;
+  font-size:2rem;
+  pointer-events:none;
+  animation:floatUp 1.3s ease-out forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px){
+  #quizStreak{font-size:1rem;}
+  #quizOptions .btn{font-size:0.85rem;padding:0.5rem 0.75rem;}
+  .flame-float{font-size:1.4rem;}
+}
+@media (min-width:577px) and (max-width:768px){
+  #quizStreak{font-size:1.1rem;}
+  .flame-float{font-size:1.6rem;}
+}
+
+@keyframes flicker{
+  0%,100%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-4px) scale(1.15);}
+}
+
+/* Floating decorative images */
+.floating-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; /* Changed from -1 */
+  overflow: hidden;
+}
+.float-pic {
+  position: absolute;
+  width: 140px;
+  opacity: 0.4;
+  animation: rotateZ 20s linear infinite;
+  transition: opacity 0.6s ease;
+}
+/* random starting positions via nth-child */
+.float-pic:nth-child(1){ top:10%; left:5%; }
+.float-pic:nth-child(2){ top:40%; right:8%; }
+.float-pic:nth-child(3){ top:70%; left:15%; }
+.float-pic:nth-child(4){ top:25%; left:75%; }
+.float-pic:nth-child(5){ top:60%; right:20%; }
+
+
+@keyframes rotateZ {
+  0%{ transform: rotate(0deg); }
+  100%{ transform: rotate(360deg); }
+}
+
+/* Simple jump animation for logo */
+@keyframes jump {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.logo-bounce {
+  animation: jump 2s ease-in-out infinite;
+}
+
+@keyframes moveBorder {
+  0% { background-position: 0 0; }
+  100% { background-position: -200% 0; }
+}
+
+.version-tag {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 0.65rem;
+  color: #198754; /* Success green to match the theme */
+  opacity: 0.7;
+  font-family: monospace;
+  font-weight: 500;
+  line-height: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-success,
+  .btn-outline-success {
+    position: relative;
+    overflow: hidden;
+    z-index: 0; /* establish stacking context */
+    transition: color 0.35s ease;
+  }
+
+  /* Sliding green background */
+  .btn-success::before,
+  .btn-outline-success::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #28a745; /* Bootstrap success green */
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s ease;
+    z-index: 0; /* place under button content */
+  }
+
+  /* Text color change & animate background */
+  .btn-success:hover,
+  .btn-outline-success:hover {
+    color: #fff !important;
+  }
+  .btn-success:hover::before,
+  .btn-outline-success:hover::before {
+    transform: scaleX(1);
+  }
+}
