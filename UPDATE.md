@@ -1,5 +1,15 @@
 # LinguaMind - Update Log
 
+## 24/06/2025 - Enhanced Flashcard & Quiz Experience
+
+- **Redesigned Flashcard UI**: Completely revamped the flashcard interface with a modern, clean design for better user interaction.
+- **Interactive Word Examples**: Added a new feature that displays example sentences when clicking on words, providing better context for language learning.
+- **Smooth Flip Animation**: Implemented a new card flip animation for the flashcards, making the learning experience more engaging and interactive.
+- **Improved Quiz Interface**: Updated the quiz interface to match the new flashcard design, ensuring a consistent user experience across the application.
+- **Responsive Design Improvements**: Enhanced the layout to ensure all new features work seamlessly across different screen sizes.
+- **Bug Fixes**: Resolved several language loading issues to ensure smooth transitions between different languages and improved overall stability.
+
+
 ## 23/06/2025 - Major UI/UX Overhaul & Project Restructure
 
 - **Complete UI/UX Redesign**: Overhauled the Flashcard and Quiz modals with a new, modern, and consistent design system for a better user experience.
