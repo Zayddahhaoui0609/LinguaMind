@@ -1,0 +1,12 @@
+# Dependencies
+/node_modules
+
+# Build artifacts
+/public/languageData.json
+
+# Environment
+.env
+
+# OS-specific
+.DS_Store
+Thumbs.db

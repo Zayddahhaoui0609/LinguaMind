@@ -1,0 +1,4 @@
+*.html linguist-language=HTML
+*.css linguist-language=CSS
+public/style.css linguist-vendored=false
+*.json linguist-language=JSON linguist-weight=0.1
