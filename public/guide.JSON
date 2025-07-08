@@ -1,0 +1,65 @@
+{
+    "pages": [
+      {
+        "Screenshots": [
+          {
+            "file": "Generate.png",
+            "description": "Generates exercises based on your selected language and level."
+          },
+          {
+            "file": "Language1.png",
+            "description": "Dropdown to select the language to learn."
+          },
+          {
+            "file": "Language2.png",
+            "description": "Alternative view of the language selector."
+          },
+          {
+            "file": "Level1.png",
+            "description": "Dropdown to choose the learning level (e.g., A1, A2)."
+          },
+          {
+            "file": "Level2.png",
+            "description": "Expanded view of available levels."
+          }
+        ]
+      },
+      {
+        "Screenshots": [
+          {
+            "file": "Flashcards.png",
+            "description": "Button to open the flashcard learning mode."
+          },
+          {
+            "file": "Flashcardtab.png",
+            "description": "Tab showing the flashcard content and options."
+          },
+          {
+            "file": "WordSelected.png",
+            "description": "Indicates a word currently selected for learning."
+          },
+          {
+            "file": "Wordunselected.png",
+            "description": "A word that hasn’t been selected yet."
+          }
+        ]
+      },
+      {
+        "Screenshots": [
+          {
+            "file": "Quiz.png",
+            "description": "Button to start the quiz mode."
+          },
+          {
+            "file": "QuizTab.png",
+            "description": "Tab where quiz questions and answers are displayed."
+          },
+          {
+            "file": "QuizDeutsch.png",
+            "description": "Quiz mode displayed in German."
+          }
+        ]
+      }
+    ]
+  }
+  
